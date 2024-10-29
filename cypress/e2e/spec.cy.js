@@ -14,6 +14,15 @@ describe('Adopet', () => {
     cy.contains('button', 'Cadastrar').click();
   })
 
+  it('Campos do formulário de cadastro incorreto', () => {
+    cy.contains('a', 'Cadastrar').click();
+    cy.contains('button', 'Cadastrar').click();
+    cy.contains('É necessário informar seu nome').should('be.visible');
+    cy.contains('É necessário informar um endereço de email').should('be.visible');
+    cy.contains('Crie uma senha').should('be.visible');
+    cy.contains('Repita a senha criada acima').should('be.visible');
+  })
+
   it('pets disponíveis para adoção', () => {
     cy.get('.button').click();
   });
@@ -34,7 +43,7 @@ describe('Adopet', () => {
     cy.contains('Veja os amigos disponíveis para adoção!').should('be.visible');
   });
 
-  it.only('/home  “Falar com o responsável”', () => {
+  it('Na /home  “Falar com o responsável”', () => {
     cy.get('.button').click();
     cy.get('.card__contact').eq(2).click();
   });
