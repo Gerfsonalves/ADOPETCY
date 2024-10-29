@@ -14,6 +14,13 @@ describe('Adopet', () => {
     cy.contains('button', 'Cadastrar').click();
   })
 
+  it('login', () => {
+    cy.login('email', 'password');
+    cy.get('input[name="email"]').type('email@gmail.com');
+    cy.get('input[name="password"]').type('1234Teste');
+    cy.contains('button', 'Entrar').click();
+  });
+
   it('Campos do formulário de cadastro incorreto', () => {
     cy.contains('a', 'Cadastrar').click();
     cy.contains('button', 'Cadastrar').click();
@@ -22,6 +29,16 @@ describe('Adopet', () => {
     cy.contains('Crie uma senha').should('be.visible');
     cy.contains('Repita a senha criada acima').should('be.visible');
   })
+
+  it.only('O e-mail deve ter um formato válido.', () => {
+    cy.contains('a', 'Cadastrar').click();
+    cy.get('input[name="name"]').type('Jose silva');
+    cy.get('input[name="email"]').type('email.gmail.com');
+    cy.get('input[name="password"]').type('1234Teste');
+    cy.get('input[name="confirm_password"]').type('1234Teste');
+    cy.contains('button', 'Cadastrar').click();
+    cy.contains('Por favor, verifique o email digitado').should('be.visible');
+  });
 
   it('pets disponíveis para adoção', () => {
     cy.get('.button').click();
