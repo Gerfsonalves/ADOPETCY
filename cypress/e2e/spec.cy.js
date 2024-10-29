@@ -6,12 +6,7 @@ describe('Adopet', () => {
   })
 
   it('Cadastrar', () => {
-    cy.contains('a', 'Cadastrar').click();
-    cy.get('input[name="name"]').type('Jose silva');
-    cy.get('input[name="email"]').type('email@gmail.com');
-    cy.get('input[name="password"]').type('1234Teste');
-    cy.get('input[name="confirm_password"]').type('1234Teste');
-    cy.contains('button', 'Cadastrar').click();
+    cy.cadastrar('Jose silva', 'email@gmail.com', '1234Teste', '1234Teste')
   })
 
   it('Fazer login', () => {
