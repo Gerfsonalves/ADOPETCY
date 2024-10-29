@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
-describe('template spec', () => {
+describe('Adopet', () => {
+  beforeEach('Visitar site', () => {
+    cy.visit('https://adopet-tau.vercel.app')
+  })
+
   it('Cadastrar', () => {
-    cy.visit('https://adopet-tau.vercel.app');
     cy.contains('a', 'Cadastrar').click();
     cy.get('input[name="name"]').type('Jose silva');
     cy.get('input[name="email"]').type('email@gmail.com');
@@ -10,4 +13,30 @@ describe('template spec', () => {
     cy.get('input[name="confirm_password"]').type('1234Teste');
     cy.contains('button', 'Cadastrar').click();
   })
+
+  it('pets disponíveis para adoção', () => {
+    cy.get('.button').click();
+  });
+
+  it('teste os botões header', () => {
+    cy.get('.header__home').should('be.visible');
+    cy.get('.header__home').click();
+    cy.get('.header__message').should('be.visible');
+    cy.get('.header__message').click();
+  });
+
+  it('Visite a página de /login', () => {
+    cy.contains('a', 'Fazer login').click();
+  });
+
+  it('Visite a página de /home', () => {
+    cy.visit('https://adopet-tau.vercel.app/home');
+    cy.contains('Veja os amigos disponíveis para adoção!').should('be.visible');
+  });
+
+  it.only('/home  “Falar com o responsável”', () => {
+    cy.get('.button').click();
+    cy.get('.card__contact').eq(2).click();
+  });
+
 })
