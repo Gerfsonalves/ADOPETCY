@@ -24,13 +24,7 @@ describe('Adopet', () => {
   })
 
   it('O e-mail deve ter um formato válido.', () => {
-    cy.contains('a', 'Cadastrar').click();
-    cy.get('input[name="name"]').type('Jose silva');
-    cy.get('input[name="email"]').type('email.gmail.com');
-    cy.get('input[name="password"]').type('1234Teste');
-    cy.get('input[name="confirm_password"]').type('1234Teste');
-    cy.contains('button', 'Cadastrar').click();
-    cy.contains('Por favor, verifique o email digitado').should('be.visible');
+    cy.cadastrar('Jose silva', 'email.gmail.com', '1234Teste', '1234Teste')
   });
 
   it('pets disponíveis para adoção', () => {
