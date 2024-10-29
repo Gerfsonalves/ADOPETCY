@@ -10,6 +10,17 @@
 //
 //
 // -- This is a parent command --
+Cypress.Commands.add('cadastrar', (name, email, password, passwordconfirm) => {
+    cy.contains('a', 'Cadastrar').click();
+    cy.get('input[name="name"]').type(name);
+    cy.get('input[name="email"]').type(email);
+    cy.get('input[name="password"]').type(password);
+    cy.get('input[name="confirm_password"]').type(passwordconfirm);
+    cy.contains('button', 'Cadastrar').click();
+})
+
+
+
 Cypress.Commands.add('login', (email, password) => {
     cy.get('input[name="email"]').type(email);
     cy.get('input[name="password"]').type(password);
