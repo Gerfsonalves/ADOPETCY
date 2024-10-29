@@ -18,6 +18,7 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('input[name="confirm_password"]').type('1234Teste');
     cy.contains('button', 'Cadastrar').click();
 })
+
 //
 //
 // -- This is a child command --
