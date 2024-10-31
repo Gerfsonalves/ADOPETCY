@@ -1,3 +1,19 @@
+<div align="center"><h1>
+Automação de testes para o site Adopet 
+</div align="center">
+
+
+ - Os testes validam o fluxo de cadastro, login e navegação, garantindo a exibição de mensagens de
+ erro para dados incorretos.<br>
+- Comandos Customizados.<br>
+- Integração Contínua (CI)<br>
+Usando GitHub Actions, o pipeline de CI executa automaticamente os testes em cada push, ajudando a garantir a qualidade contínua do projeto e facilitando a detecção de falhas.<br><br>
+
+
+<div align="center"><h1>
+Cenário de testes🧑🏻‍🔬
+</div align="center">
+
 <div align="center"><h2>
 1. Cadastro de Usuário com Dados Válidos
 </div align="center">
