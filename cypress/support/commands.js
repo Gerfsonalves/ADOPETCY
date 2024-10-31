@@ -16,7 +16,7 @@ Cypress.Commands.add('cadastrar', (name, email, password, passwordconfirm) => {
     cy.get('input[name="email"]').type(email);
     cy.get('input[name="password"]').type(password);
     cy.get('input[name="confirm_password"]').type(passwordconfirm);
-    cy.contains('button', 'Cadastrar').click();
+    cy.contains('button', 'Cadastrar').should('not.be.disabled').click();
 })
 
 

@@ -24,7 +24,8 @@ describe('Adopet', () => {
   })
 
   it('O e-mail deve ter um formato válido.', () => {
-    cy.cadastrar('Jose silva', 'email.gmail.com', '1234Teste', '1234Teste')
+    cy.cadastrar('Jose silva', 'email.gmail.com', '1234Teste', '1234Teste');
+    cy.contains('Por favor, verifique o email digitado').should('be.visible');
   });
 
   it('pets disponíveis para adoção', () => {
@@ -32,10 +33,8 @@ describe('Adopet', () => {
   });
 
   it('teste os botões header', () => {
-    cy.get('.header__home').should('be.visible');
-    cy.get('.header__home').click();
-    cy.get('.header__message').should('be.visible');
-    cy.get('.header__message').click();
+    cy.get('.header__home').should('exist').click();
+    cy.get('.header__message').should('exist').click();
   });
 
   it('Visite a página de /login', () => {
